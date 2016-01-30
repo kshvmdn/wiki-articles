@@ -6,6 +6,11 @@
         </div>
         <div class="content">
             <div class="posts">
+            {% for title, article in articles.items() %}
+                <div class="post">
+                    <a href="{{ article.url }}" target="_blank"><span class="title">{{ article.title }}</span></a>
+                </div>
+            {% endfor %}
             </div>
         </div>
     </div>
