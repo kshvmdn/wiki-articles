@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, json, jsonify
 
 app = Flask(__name__)
 from app.wikipedia.content import get_articles as load_content
