@@ -21,7 +21,7 @@ def parse_articles(articles):
 
 
 
-def get_articles_for_search(query):
+def get_search_articles(query):
     articles = wikipedia.search(query)
     random.shuffle(articles)
     return parse_articles(articles[:7])

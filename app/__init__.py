@@ -1,13 +1,15 @@
 from flask import Flask, render_template, json, jsonify
+from app.wikipedia import get_search_articles, get_random_articles
 
 app = Flask(__name__)
-from app.wikipedia import *
+
 
 @app.route('/')
 def render_random_content():
-    return render_template('posts.html', articles=get_random_articles(2))
+    return render_template('posts.html', articles=get_random_articles(5))
 
 
-@app.route('/category/<category_name>')
-def show_category_posts(category_name):
-    return render_template('posts.html', query=category_name, articles=get_articles_for_search(category_name))
+@app.route('/search/<query>')
+@app.route('/category/<query>')
+def show_posts(query):
+    return render_template('posts.html', query=query, articles=get_search_articles(query))
