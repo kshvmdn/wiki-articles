@@ -1,5 +1,8 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 {% block index %}
+    {% if category is defined %}
+        <div class="lead">Showing posts for <i>{{ query }}</i></div>
+    {% endif %}
     <div class="posts">
     {% for title, article in articles.items() %}
         <div class="post">
@@ -7,7 +10,9 @@
             <p>{{ article.summary }}</p>
             <div class="tags">
                 {% for tag in article.categories %}
-                    <code class="small"><a href="/category/{{ tag }}">{{ tag }}</a></code>&nbsp;
+                    {% if 'category' not in tag.lower() and 'articles' not in tag.lower() and 'wiki' not in tag.lower() %}
+                        <code class="small"><a href="/category/{{ tag }}">{{ tag.lower() }}</a></code>&nbsp;
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
