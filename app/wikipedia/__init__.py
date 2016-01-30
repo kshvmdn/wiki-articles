@@ -5,10 +5,13 @@ import random
 def parse_articles(articles):
     data = {}
     for article in articles:
+
         try:
             article = wikipedia.page(article)
         except:
             articles.append(wikipedia.random(1))
+
+        print(article)
         data[article.title] = {
             'title': article.title,
             'url': article.url,
@@ -16,9 +19,7 @@ def parse_articles(articles):
             'categories': article.categories,
             'content': article.content
         }
-        print(article)
     return data
-
 
 
 def get_search_articles(query):
