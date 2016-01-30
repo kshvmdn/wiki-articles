@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block index %}
+    <div class="posts">
+    {% for title, article in articles.items() %}
+        <div class="post">
+            <a href="{{ article.url }}" target="_blank"><span class="title">{{ article.title }}</span></a>
+            <p>{{ article.summary }}</p>
+            <div class="tags">
+                {% for tag in article.categories %}
+                    <code class="small"><a href="/category/{{ tag }}">{{ tag }}</a></code>&nbsp;
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock index %}

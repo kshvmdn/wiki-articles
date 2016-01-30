@@ -4,8 +4,8 @@ app = Flask(__name__)
 from app.wikipedia import get_articles as load_content
 
 @app.route('/')
-def render_content():
+def render_random_content():
     content = load_content()
-    return render_template('index.html', articles=content)
+    return render_template('posts.html', articles=content)
 
 

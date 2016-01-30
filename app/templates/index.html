@@ -1,23 +1,31 @@
-{% extends "base.html" %}
-{% block index %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WikiArticles</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Kashav Madan">
+    <meta name="application-name" content="wiki-articles">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <style>
+        body {font-size: 16px; line-height: 1.8; font-family: sans-serif;}
+        .container {padding: 25px;}
+        .hero {margin-top: 30px; margin-bottom: 10px}
+        .hero a {font-family: Georgia, Times, serif;}
+        a {color: inherit; text-decoration: none;}
+        .post {font-family: sans-serif; margin: 20px auto;}
+        .title {font-family: Georgia, Times, serif; font-size: 25px; margin-bottom: 20px;}
+    </style>
+</head>
+<body>
     <div class="container">
-        <div class="hero h2">
-            WikiArticles <span class="small">An aggregator for <i>random</i> Wikipedia articles.</span>
+        <div class="hero h1">
+            <a href="/">WikiArticles</a> <span class="small">An aggregator for <i>random</i> Wikipedia articles.</span>
         </div>
         <div class="content">
-            <div class="posts">
-            {% for title, article in articles.items() %}
-                <div class="post">
-                    <a href="{{ article.url }}" target="_blank"><span class="title">{{ article.title }}</span></a>
-                    <p>{{ article.summary }}</p>
-                    <div class="tags">
-                        {% for tag in article.categories %}
-                            <code class="small"> {{ tag }} </code>&nbsp;
-                        {% endfor %}
-                    </div>
-                </div>
-            {% endfor %}
-            </div>
+            {% block index %}{% endblock index %}  
         </div>
     </div>
-{% endblock index %}
+</body>
+</html>
