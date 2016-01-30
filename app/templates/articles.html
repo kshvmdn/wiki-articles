@@ -2,15 +2,22 @@
 {% block index %}
     {% if query is defined %}
         <div class="lead">Showing posts for <i>{{ query }}</i>...</div>
+    {%  else  %}
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="query" placeholder="Query">
+            <span class="input-group-btn">
+                <button onclick="search()" class="btn btn-default" type="button">Go!</button>
+            </span>
+        </div>
     {% endif %}
-    <div class="posts">
+    <div class="articles">
     {% for title, article in articles.items() %}
-        <div class="post">
+        <div class="article">
             <a href="{{ article.url }}" target="_blank"><span class="title">{{ article.title }}</span></a>
             <p>{{ article.summary }}</p>
             <div class="tags">
                 {% for tag in article.categories %}
-                    {% if 'category' not in tag.lower() and 'articles' not in tag.lower() and 'wiki' not in tag.lower() and 'errors' not in tag.lower() and 'mdy' not in tag.lower() %}
+                    {% if 'category' not in tag.lower() and 'articles' not in tag.lower() and 'wiki' not in tag.lower() and 'errors' not in tag.lower() and 'mdy' not in tag.lower() and 'dmy' not in tag.lower() %}
                         <code class="small"><a href="/category/{{ tag }}">{{ tag.lower() }}</a></code>&nbsp;
                     {% endif %}
                 {% endfor %}
