@@ -9,3 +9,6 @@ def render_random_content():
     return render_template('posts.html', articles=content)
 
 
+@app.route('/category/<category_name>')
+def show_category_posts(category_name):
+    return render_template('category.html', category=category_name)
