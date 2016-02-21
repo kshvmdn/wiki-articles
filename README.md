@@ -23,7 +23,7 @@ Use with Python 3.
   python run.py
   ```
   
-  Navigate to `127.0.0.1:8080` in your browser.
+  Open `127.0.0.1:8080` in your browser.
 
 ### Contribute
 
