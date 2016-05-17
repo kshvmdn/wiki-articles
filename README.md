@@ -22,8 +22,8 @@ Use with Python 3.
   ```
   python run.py
   ```
-  
-  Open `127.0.0.1:8080` in your browser.
+
++ App is running at `127.0.0.1:8080`
 
 ### Contribute
 
